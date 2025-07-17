@@ -14,6 +14,7 @@ public class Home extends javax.swing.JFrame {
      * Creates new form Home
      */
     public Home() {
+        ?vdgnjvieojfjgkrgebgfngogkgn mfkbmokj bpmkn jlpmknj cl
         initComponents();
         setLocationRelativeTo(null);
          new Login(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
