@@ -4,6 +4,8 @@
  */
 package com.ui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author LENOVO
@@ -75,7 +77,7 @@ public class Login extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setText("Dang ky");
+        jButton2.setText("Thoat");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -146,6 +148,17 @@ public class Login extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+             int choice = JOptionPane.showConfirmDialog(
+        this,
+        "B?n ch?c ch?n mu?n thoát không?",
+        "Xác nh?n thoát",
+        JOptionPane.OK_CANCEL_OPTION,
+        JOptionPane.QUESTION_MESSAGE
+    );
+
+    if (choice == JOptionPane.OK_OPTION) {
+        this.dispose(); // ?óng JDialog hi?n t?i
+    }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

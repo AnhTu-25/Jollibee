@@ -4,11 +4,16 @@
  */
 package com.ui;
 
+import java.awt.Frame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PC
  */
 public class Password extends javax.swing.JDialog {
+
+    private Frame Home;
 
     /**
      * Creates new form Password
@@ -27,46 +32,56 @@ public class Password extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        btnDong = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtMatkhauMoi = new javax.swing.JTextField();
+        txtXacNhanMatKhau = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtMatKhauHienTai = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTenDangNhap = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnLuuMatKhau = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton2.setText("?óng");
+        btnDong.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnDong.setText("Dong");
+        btnDong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDongActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel6.setText("Xác nh?n m?t kh?u m?i:");
+        jLabel6.setText("Xac nhan mat khau moi:");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jLabel1.setText("??I M?T KH?U");
+        jLabel1.setText("DOI MAT KHAU");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel2.setText("Tên ??ng nh?p:");
+        jLabel2.setText("Ten dang nhap:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtTenDangNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtTenDangNhapActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel4.setText("M?t kh?u hi?n t?i:");
+        jLabel4.setText("Mat khau hien tai:");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel5.setText("Nh?p m?t kh?u m?i:");
+        jLabel5.setText("Nhap mat khau moi:");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton1.setText("L?u m?t kh?u");
+        btnLuuMatKhau.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnLuuMatKhau.setText("Luu mat khau");
+        btnLuuMatKhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLuuMatKhauActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,17 +97,17 @@ public class Password extends javax.swing.JDialog {
                             .addComponent(jLabel1))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnLuuMatKhau)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2))
+                                .addComponent(btnDong))
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtTenDangNhap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMatkhauMoi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtXacNhanMatKhau, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMatKhauHienTai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(22, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -105,23 +120,23 @@ public class Password extends javax.swing.JDialog {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jLabel2)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(12, 12, 12)
                     .addComponent(jLabel4)
                     .addGap(18, 18, 18)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMatKhauHienTai, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jLabel5)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMatkhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(12, 12, 12)
                     .addComponent(jLabel6)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtXacNhanMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2)
-                        .addComponent(jButton1))
+                        .addComponent(btnDong)
+                        .addComponent(btnLuuMatKhau))
                     .addContainerGap()))
         );
 
@@ -129,9 +144,48 @@ public class Password extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtTenDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenDangNhapActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        
+    }//GEN-LAST:event_txtTenDangNhapActionPerformed
+
+    private void btnDongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDongActionPerformed
+          Password dialog = new Password(Home, true);
+        this.setVisible(false);
+        Home.setVisible(true);
+    }//GEN-LAST:event_btnDongActionPerformed
+
+    private void btnLuuMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuMatKhauActionPerformed
+        // TODO add your handling code here:
+          if (txtTenDangNhap.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "B?n c?n nh?p tên ??ng nh?p!", "L?i", JOptionPane.ERROR_MESSAGE);
+        txtTenDangNhap.requestFocus();
+        return;
+    }
+    if (txtMatKhauHienTai.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "B?n c?n nh?p m?t kh?u hi?n t?i!", "L?i", JOptionPane.ERROR_MESSAGE);
+        txtMatKhauHienTai.requestFocus();
+        return;
+    }
+    if (txtMatkhauMoi.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "B?n c?n nh?p m?t kh?u m?i!", "L?i", JOptionPane.ERROR_MESSAGE);
+        txtMatkhauMoi.requestFocus();
+        return;
+    }
+    if (txtXacNhanMatKhau.getText().trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "B?n c?n xác nh?n m?t kh?u m?i!", "L?i", JOptionPane.ERROR_MESSAGE);
+        txtXacNhanMatKhau.requestFocus();
+        return;
+    }
+    if (!txtMatkhauMoi.getText().equals(txtXacNhanMatKhau.getText())) {
+        JOptionPane.showMessageDialog(this, "M?t kh?u m?i và xác nh?n không kh?p!", "L?i", JOptionPane.ERROR_MESSAGE);
+        txtXacNhanMatKhau.requestFocus();
+        return;
+    }
+
+    // N?u qua h?t các b??c trên, x? lý l?u m?t kh?u ? ?ây
+    JOptionPane.showMessageDialog(this, "??i m?t kh?u thành công!");
+    }//GEN-LAST:event_btnLuuMatKhauActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,16 +230,16 @@ public class Password extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnDong;
+    private javax.swing.JButton btnLuuMatKhau;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField txtMatKhauHienTai;
+    private javax.swing.JTextField txtMatkhauMoi;
+    private javax.swing.JTextField txtTenDangNhap;
+    private javax.swing.JTextField txtXacNhanMatKhau;
     // End of variables declaration//GEN-END:variables
 }
