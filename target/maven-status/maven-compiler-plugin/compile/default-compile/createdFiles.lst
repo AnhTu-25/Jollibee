@@ -4,6 +4,7 @@ com\ui\Password$2.class
 com\ui\Login$2.class
 com\dao\impl\NewClass.class
 com\ui\Home$8.class
+com\ui\Manager\UserNV.class
 com\ui\Welcome$1.class
 com\ui\Status.class
 com\ui\Sale$2.class
@@ -11,13 +12,16 @@ com\ui\Home$2.class
 com\ui\Manager\NewClass.class
 com\ui\Password.class
 com\ui\Login$3.class
+com\ui\Home$9.class
 com\ui\Welcome$2.class
 com\ui\Welcome$2$1.class
 com\ui\Welcome.class
 com\ui\Sale$1.class
+com\ui\Manager\UserNV$2$1.class
 com\ui\Login$1.class
 com\ui\Password$1.class
 com\ui\Login$3$1.class
+com\ui\Manager\UserNV$1.class
 com\ui\Password$2$1.class
 com\ui\Sale$3.class
 com\ui\Status$1.class
@@ -31,6 +35,7 @@ com\ui\Home$5.class
 com\ui\Home.class
 com\ui\Sale$4.class
 com\ui\Sale.class
+com\ui\Manager\UserNV$2.class
 com\ui\Status$1$1.class
 com\util\NewClass.class
 com\ui\Home$6.class
