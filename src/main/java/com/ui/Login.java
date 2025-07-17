@@ -17,7 +17,7 @@ public class Login extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();  
         new Welcome(parent, modal).setVisible(true); // m? JFrame m?i
-        this.dispose(); // ?óng LoginFrame
+        this.dispose(); // ?ï¿½ng LoginFrame
 
     }
    
