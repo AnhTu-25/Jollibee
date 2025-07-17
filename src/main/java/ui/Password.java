@@ -42,16 +42,16 @@ public class Password extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton2.setText("Đóng");
+        jButton2.setText("?�ng");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel6.setText("Xác nhận mật khẩu mới:");
+        jLabel6.setText("X�c nh?n m?t kh?u m?i:");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        jLabel1.setText("ĐỔI MẬT KHẨU");
+        jLabel1.setText("??I M?T KH?U");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel2.setText("Tên đăng nhập:");
+        jLabel2.setText("T�n ??ng nh?p:");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,13 +60,13 @@ public class Password extends javax.swing.JDialog {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel4.setText("Mật khẩu hiện tại:");
+        jLabel4.setText("M?t kh?u hi?n t?i:");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel5.setText("Nhập mật khẩu mới:");
+        jLabel5.setText("Nh?p m?t kh?u m?i:");
 
         jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton1.setText("Lưu mật khẩu");
+        jButton1.setText("L?u m?t kh?u");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,6 +126,7 @@ public class Password extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
