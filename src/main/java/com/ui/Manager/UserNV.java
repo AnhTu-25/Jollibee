@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
@@ -68,49 +68,49 @@ public class UserNV extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("·∫¢nh");
+        jLabel1.setText("?nh");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setText("M√£:");
+        jLabel2.setText("M„:");
 
-        jLabel3.setText("H·ªç t√™n:");
+        jLabel3.setText("H? tÍn:");
 
         jLabel4.setText("SDT:");
 
-        jLabel5.setText("M·∫≠t kh·∫©u:");
+        jLabel5.setText("M?t kh?u:");
 
-        jLabel6.setText("Vai tr√≤:");
+        jLabel6.setText("Vai trÚ:");
 
-        jLabel7.setText("Ghi ch√∫:");
+        jLabel7.setText("Ghi ch˙:");
 
-        jLabel8.setText("Tr·∫°ng th√°i:");
+        jLabel8.setText("Tr?ng th·i:");
 
-        jLabel9.setText("Gi·ªõi t√≠nh:");
+        jLabel9.setText("Gi?i tÌnh:");
 
-        jLabel10.setText("Ng√†y sinh:");
+        jLabel10.setText("Ng‡y sinh:");
 
         jLabel11.setText("Email:");
 
         jRadioButton1.setText("Nam");
 
-        jRadioButton2.setText("N·ªØ");
+        jRadioButton2.setText("N?");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qu·∫£n l√Ω", "Nh√¢n vi√™n", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qu?n l˝", "Nh‚n viÍn", " " }));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ƒêang l√†m", "H·∫øt ca", " " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?ang l‡m", "H?t ca", " " }));
 
-        jButton1.setText("Th√™m");
+        jButton1.setText("ThÍm");
 
-        jButton2.setText("C·∫≠p nh·∫≠t");
+        jButton2.setText("C?p nh?t");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -226,24 +226,24 @@ public class UserNV extends javax.swing.JDialog {
                 {null, null, null}
             },
             new String [] {
-                "M√£ nh√¢n vi√™n", "T√™n nh√¢n vi√™n", "Vai tr√≤"
+                "M„ nh‚n viÍn", "TÍn nh‚n viÍn", "Vai trÚ"
             }
         ));
         jTable1.setGridColor(new java.awt.Color(0, 0, 0));
         jTable1.setShowGrid(true);
         jScrollPane2.setViewportView(jTable1);
 
-        jButton3.setText("T√¨m");
+        jButton3.setText("TÏm");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qu·∫£n l√Ω", "Pha ch·∫ø", "Thu Ng√¢n" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qu?n l˝", "Pha ch?", "Thu Ng‚n" }));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ƒêang l√†m vi·ªác", "H·∫øt ca", " " }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?ang l‡m vi?c", "H?t ca", " " }));
 
-        jLabel12.setText("T√™n nh√¢n vi√™n:");
+        jLabel12.setText("TÍn nh‚n viÍn:");
 
-        jLabel13.setText("V·ªã tr√≠");
+        jLabel13.setText("V? trÌ");
 
-        jLabel14.setText("Tr·∫°ng th√°i");
+        jLabel14.setText("Tr?ng th·i");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

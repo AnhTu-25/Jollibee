@@ -138,3 +138,5 @@ INSERT INTO BillDetails (BillId, DrinkId, UnitPrice, Discount, Quantity) VALUES
 (10003, 'D001', 2.5, 0.0, 1);
 GO
 
+
+
