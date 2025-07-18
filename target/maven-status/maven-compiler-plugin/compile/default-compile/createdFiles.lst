@@ -6,13 +6,17 @@ com\ui\Home$3.class
 com\ui\Manager\LoaiSanPham.class
 com\ui\Password$2.class
 com\ui\Login$2.class
+com\ui\Manager\UserNV$7$1.class
 com\dao\impl\NewClass.class
 com\ui\Manager\MainSanPham$9.class
 com\ui\Manager\UserNV.class
 com\ui\Manager\MainSanPham$3.class
 com\ui\Welcome$1.class
+com\ui\Manager\UserNV$6.class
 com\ui\Sale$2.class
 com\ui\Home$2.class
+com\ui\Manager\User.class
+com\ui\Manager\UserNV$5.class
 com\ui\Manager\NewClass.class
 com\ui\Password.class
 com\ui\Login$3.class
@@ -23,7 +27,6 @@ com\ui\Welcome.class
 com\ui\Sale$1.class
 com\ui\Manager\MainSanPham$8.class
 com\ui\Manager\SanPhamDao.class
-com\ui\Manager\UserNV$2$1.class
 com\ui\Login$1.class
 com\ui\Password$1.class
 com\ui\Login$3$1.class
@@ -32,7 +35,9 @@ com\ui\Sale$3.class
 com\ui\Manager\MainSanPham$5.class
 DAO\NewClass.class
 com\ui\Manager\MainSanPham$2.class
+com\ui\Manager\UserNV$7.class
 com\ui\Login.class
+com\ui\Manager\UserNV$4.class
 com\ui\Home$4.class
 com\ui\Home$1.class
 com\ui\Sale$5.class
@@ -41,6 +46,7 @@ com\ui\Manager\MainSanPham$6.class
 com\ui\Home$5.class
 com\ui\Manager\SanPham.class
 com\ui\Home.class
+com\ui\Manager\UserNV$3.class
 com\util\XJdbc.class
 com\ui\Sale$4.class
 com\ui\Password$4.class
