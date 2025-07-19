@@ -4,7 +4,7 @@
  */
 package com.ui.Manager;
 
-import com.ui.*;
+import com.ui.Home;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -15,21 +15,26 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author VAN TRONG
  */
-public class MainSanPham extends javax.swing.JFrame {
+public final class MainSanPham extends javax.swing.JFrame {
 
-    private SanPhamDao dao = new SanPhamDao();
+    private final SanPhamDao dao = new SanPhamDao();
     private List<SanPham> listsp = new ArrayList<>();
-    private List<LoaiSanPham> listlsp = new ArrayList<>();
+    private List<LoaiSanPham> listlsp;
     int current = 0;
 
     /**
      * Creates new form MainSanPham
      */
     public MainSanPham() {
+        this.listlsp = new ArrayList<>();
         initComponents();
         setLocationRelativeTo(null);
         loadDataToTable();
         loadDataToCombobox();
+    }
+
+    public MainSanPham(Home aThis, boolean rootPaneCheckingEnabled) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public void loadDataToTable() {
@@ -83,12 +88,13 @@ public class MainSanPham extends javax.swing.JFrame {
         SanPham sp = new SanPham();
         sp.setMaSP(txtMaSP.getText());
         sp.setTenSP(txtTenSP.getText());
-        sp.setDongia(Double.valueOf(txtDonGia.getText().replaceAll(",", "")));
-        sp.setSoluong(Integer.valueOf(txtSoLuong.getText()));
+        sp.setDongia(Double.parseDouble(txtDonGia.getText().replaceAll(",", "")));
+        sp.setSoluong(Integer.parseInt(txtSoLuong.getText()));
         switch (String.valueOf(cbxChon.getSelectedItem())) {
-            case "�?IỆN THOẠI" -> sp.setLoaiSanPham( 1);
-            case "LAPTOP" -> sp.setLoaiSanPham( 2);
-            case "PHỤ KIỆN" -> sp.setLoaiSanPham( 3);
+            case "GÀ R�?N" -> sp.setLoaiSanPham(1);
+            case "BURGER" -> sp.setLoaiSanPham(2);
+            case "THỨC U�?NG" -> sp.setLoaiSanPham(3);
+            default -> sp.setLoaiSanPham(0); // hoặc xử lý thông báo lỗi
         }
         return sp;
     }
@@ -365,7 +371,7 @@ public class MainSanPham extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 31, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -456,13 +462,10 @@ public class MainSanPham extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainSanPham.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainSanPham().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MainSanPham().setVisible(true);
         });
     }
 

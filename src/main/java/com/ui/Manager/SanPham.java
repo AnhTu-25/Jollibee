@@ -4,12 +4,7 @@
  */
 package com.ui.Manager;
 
-import com.ui.*;
 
-/**
- *
- * @author VAN TRONG
- */
 public class SanPham {
     String maSP;
     String tenSP;

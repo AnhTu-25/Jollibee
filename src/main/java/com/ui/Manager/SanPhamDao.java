@@ -6,9 +6,10 @@ import java.util.List;
 
 public class SanPhamDao {
 
-    private final String url = "jdbc:sqlserver://LAPTOP-0EI90H20;database=sampham;encrypt=true;trustServerCertificate=true;";
-    private final String userName = "root";   // Ki?m tra l?i n?u b?n d�ng SQL Server Auth
-    private final String password = "Anhtu1211";
+    // ✅ Cấu hình SQL Server
+    private final String url = "jdbc:sqlserver://localhost:1433;databaseName=QLSanPham;encrypt=true;trustServerCertificate=true";
+    private final String userName = "sa"; // hoặc tên user bạn dùng trong SQL Server
+    private final String password = "Anhtu1211"; // thay bằng mật khẩu của bạn
 
     String INSERT_SQL = "INSERT INTO SanPham (MaSanPham, TenSP, DonGia, SoLuong, MaLH) VALUES (?, ?, ?, ?, ?)";
     String UPDATE_SQL = "UPDATE SanPham SET TenSP = ?, DonGia = ?, SoLuong = ?, MaLH = ? WHERE MaSanPham = ?";
@@ -19,12 +20,12 @@ public class SanPhamDao {
     String SELECT_ALL_LOAISANPHAM_SQL = "SELECT * FROM loai_sanpham";
 
     private Connection getConnection() throws Exception {
-        // ? ??i sang driver SQL Server
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(url, userName, password);
     }
 
     public int insert(SanPham sp) {
+        int rs = 0;
         try (Connection conn = getConnection();
              PreparedStatement st = conn.prepareStatement(INSERT_SQL)) {
 
@@ -34,14 +35,15 @@ public class SanPhamDao {
             st.setInt(4, sp.getSoluong());
             st.setInt(5, sp.getLoaiSanPham());
 
-            return st.executeUpdate();
+            rs = st.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
+            e.printStackTrace(); // nên log lỗi
         }
+        return rs;
     }
 
     public int update(SanPham sp) {
+        int rs = 0;
         try (Connection conn = getConnection();
              PreparedStatement st = conn.prepareStatement(UPDATE_SQL)) {
 
@@ -51,23 +53,24 @@ public class SanPhamDao {
             st.setInt(4, sp.getLoaiSanPham());
             st.setString(5, sp.getMaSP());
 
-            return st.executeUpdate();
+            rs = st.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-            return 0;
         }
+        return rs;
     }
 
     public int delete(String maSP) {
+        int rs = 0;
         try (Connection conn = getConnection();
              PreparedStatement st = conn.prepareStatement(DELETE_SQL)) {
 
             st.setString(1, maSP);
-            return st.executeUpdate();
+            rs = st.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-            return 0;
         }
+        return rs;
     }
 
     public List<SanPham> getAllSanPham() {
