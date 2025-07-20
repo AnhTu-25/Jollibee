@@ -5,9 +5,9 @@ com\ui\Manager\MainSanPham.class
 com\ui\Home$3.class
 com\ui\Manager\LoaiSanPham.class
 com\ui\Password$2.class
+com\ui\Manager\UserNV$8.class
 com\ui\Login$2.class
 com\util\XJdbc$MsgBox.class
-com\ui\Manager\UserNV$7$1.class
 com\ui\Manager\UserNV.class
 com\ui\Manager\MainSanPham$3.class
 com\ui\Welcome$1.class
@@ -47,6 +47,7 @@ com\ui\Home.class
 com\ui\Manager\UserNV$3.class
 com\util\XJdbc.class
 com\ui\Sale$4.class
+com\ui\Manager\UserNV$8$1.class
 com\ui\Password$4.class
 com\ui\Sale.class
 com\ui\Manager\UserNV$2.class
