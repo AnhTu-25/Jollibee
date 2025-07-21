@@ -5,6 +5,7 @@
 package com.ui;
 
 import com.ui.Manager.MainSanPham;
+import com.ui.Manager.Sale;
 import com.ui.Manager.UserNV;
 
 /**
@@ -78,6 +79,11 @@ public class Home extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(185, 47, 2));
         jButton2.setText("Ban Hang");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(185, 47, 2));
         jButton3.setText("Hoa Don");
@@ -319,6 +325,11 @@ public class Home extends javax.swing.JFrame {
                 new MainSanPham().setVisible(true); // m? JFrame m?i
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new Sale(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

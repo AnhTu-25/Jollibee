@@ -85,7 +85,7 @@ public final class MainSanPham extends javax.swing.JFrame {
     }
 
     public SanPham getForm() {
-        SanPham sp = new SanPham();
+        SanPham sp = new SanPham(masp, tensp, soluong, dongia, khuyenmai);
         sp.setMaSP(txtMaSP.getText());
         sp.setTenSP(txtTenSP.getText());
         sp.setDongia(Double.parseDouble(txtDonGia.getText().replaceAll(",", "")));
