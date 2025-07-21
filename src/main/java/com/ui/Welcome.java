@@ -17,6 +17,10 @@ public class Welcome extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
+    Welcome() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
  public void Waiting() {
         this.setLocationRelativeTo(null);
         new Thread(() -> {
