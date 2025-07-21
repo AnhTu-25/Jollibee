@@ -35,6 +35,7 @@ com\ui\Manager\KhuyenMai.class
 com\ui\Manager\MainSanPham$2.class
 com\ui\Manager\UserNV$7.class
 com\ui\Login.class
+com\ui\Manager\UserNV$9$1.class
 com\ui\Manager\UserNV$4.class
 com\ui\Home$4.class
 com\ui\Home$1.class
@@ -47,8 +48,8 @@ com\ui\Home.class
 com\ui\Manager\UserNV$3.class
 com\util\XJdbc.class
 com\ui\Sale$4.class
-com\ui\Manager\UserNV$8$1.class
 com\ui\Password$4.class
 com\ui\Sale.class
 com\ui\Manager\UserNV$2.class
 com\ui\Manager\MainSanPham$7.class
+com\ui\Manager\UserNV$9.class
