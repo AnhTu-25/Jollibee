@@ -3,6 +3,7 @@ package com.ui.Manager;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 ;
@@ -42,7 +43,11 @@ public class UserNV extends javax.swing.JDialog {
     txtDate.setText("");
     txtSDT.setText("");
     txtpassword.setText("");
+    cboSex.setSelectedItem(null);
     txtghichu.setText("");
+    cboVitri.setSelectedItem(null);
+cbostatus.setSelectedItem(null);
+    
 }
 
     private User readForm() {
@@ -53,12 +58,12 @@ public class UserNV extends javax.swing.JDialog {
     String sdt = txtSDT.getText().trim();
     String matkhau = txtpassword.getText().trim();
     String ghichu = txtghichu.getText().trim();
-    String gioitinh = rdoNam.isSelected() ? "Nam" : "Nữ";
+    String gioitinh = (String) cboSex.getSelectedItem();
     String vaitro = (String) cboVitri.getSelectedItem();
     String trangthai = (String) cbostatus.getSelectedItem();
 
     if (ma.isEmpty() || ten.isEmpty() || email.isEmpty() || ngaysinh.isEmpty() || sdt.isEmpty() || matkhau.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin.");
+        JOptionPane.showMessageDialog(this, "Please enter complete information");
         return null;
     }
 
@@ -72,32 +77,32 @@ public class UserNV extends javax.swing.JDialog {
         if (us != null) {
             list.add(us);
             fillTable(list);
-            JOptionPane.showMessageDialog(this, "Thêm thành công!");
+            JOptionPane.showMessageDialog(this, "More success!");
             clearForm();
         }
     }
 
     public void xoa(int index) {
         if (index < 0 || index >= list.size()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng ch�?n nhân viên để xóa.");
+            JOptionPane.showMessageDialog(this, "Please select an employee to delete");
             return;
         }
         list.remove(index);
         fillTable(list);
-        JOptionPane.showMessageDialog(this, "Xóa thành công!");
+        JOptionPane.showMessageDialog(this, "Delete successful!");
         clearForm();
     }
 
     public void capnhat(int index) {
         if (index < 0 || index >= list.size()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng ch�?n nhân viên cần cập nhật.");
+            JOptionPane.showMessageDialog(this, "Please select an employee to update.");
             return;
         }
         User us = readForm();
         if (us != null) {
             list.set(index, us);
             fillTable(list);
-            JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
+            JOptionPane.showMessageDialog(this, "Update successful!");
             clearForm();
         }
     }
@@ -120,7 +125,6 @@ public class UserNV extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lbPhoto = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtMa = new javax.swing.JTextField();
         txtSDT = new javax.swing.JTextField();
@@ -137,8 +141,6 @@ public class UserNV extends javax.swing.JDialog {
         txtDate = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        rdoNam = new javax.swing.JRadioButton();
-        rdoNu = new javax.swing.JRadioButton();
         cboVitri = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtghichu = new javax.swing.JTextArea();
@@ -147,6 +149,9 @@ public class UserNV extends javax.swing.JDialog {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        cboSex = new javax.swing.JComboBox<>();
+        pnPhoto = new javax.swing.JPanel();
+        lbHinhanh = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbList = new javax.swing.JTable();
@@ -162,9 +167,6 @@ public class UserNV extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lbPhoto.setText("Photo");
-        lbPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Code:");
@@ -207,17 +209,6 @@ public class UserNV extends javax.swing.JDialog {
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setText("Email:");
-
-        rdoNam.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        rdoNam.setText("Male");
-
-        rdoNu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        rdoNu.setText("Female");
-        rdoNu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdoNuActionPerformed(evt);
-            }
-        });
 
         cboVitri.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cboVitri.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manager", "Staff" }));
@@ -264,6 +255,44 @@ public class UserNV extends javax.swing.JDialog {
             }
         });
 
+        cboSex.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cboSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        cboSex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        pnPhoto.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                pnPhotoAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        pnPhoto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnPhotoMouseClicked(evt);
+            }
+        });
+
+        lbHinhanh.setText("Photo");
+
+        javax.swing.GroupLayout pnPhotoLayout = new javax.swing.GroupLayout(pnPhoto);
+        pnPhoto.setLayout(pnPhotoLayout);
+        pnPhotoLayout.setHorizontalGroup(
+            pnPhotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPhotoLayout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addComponent(lbHinhanh, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+        );
+        pnPhotoLayout.setVerticalGroup(
+            pnPhotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPhotoLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(lbHinhanh)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -284,42 +313,39 @@ public class UserNV extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addComponent(jLabel5))
                         .addGap(0, 39, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rdoNam, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rdoNu, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtName)
-                            .addComponent(txtSDT)
-                            .addComponent(txtpassword)
-                            .addComponent(txtMa)
-                            .addComponent(txtDate)
-                            .addComponent(cboVitri, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtEmail)
-                            .addComponent(cbostatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnNew, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(lbPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cboSex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtName)
+                        .addComponent(txtSDT)
+                        .addComponent(txtpassword)
+                        .addComponent(txtMa)
+                        .addComponent(txtDate)
+                        .addComponent(cboVitri, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEmail)
+                        .addComponent(cbostatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnNew, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(60, 60, 60))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(171, 171, 171))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lbPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(20, 20, 20)
+                .addComponent(pnPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(txtMa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -327,16 +353,15 @@ public class UserNV extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cboSex, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(rdoNam)
-                    .addComponent(rdoNu))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -363,7 +388,7 @@ public class UserNV extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(cbostatus))
+                    .addComponent(cbostatus, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -502,10 +527,6 @@ public class UserNV extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdoNuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdoNuActionPerformed
-
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
         
     lammoi();
@@ -517,7 +538,7 @@ public class UserNV extends javax.swing.JDialog {
     if (us != null) {
         list.add(us);
         fillTable(list);
-        JOptionPane.showMessageDialog(this, "Thêm thành công!");
+        JOptionPane.showMessageDialog(this, "More success!");
         clearForm();
     
 }
@@ -546,6 +567,15 @@ public class UserNV extends javax.swing.JDialog {
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTimActionPerformed
+
+    private void pnPhotoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_pnPhotoAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnPhotoAncestorAdded
+
+    private void pnPhotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnPhotoMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_pnPhotoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -595,6 +625,7 @@ public class UserNV extends javax.swing.JDialog {
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnTim;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cboSex;
     private javax.swing.JComboBox<String> cboVitri;
     private javax.swing.JComboBox<String> cbostatus;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -616,9 +647,8 @@ public class UserNV extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lbPhoto;
-    private javax.swing.JRadioButton rdoNam;
-    private javax.swing.JRadioButton rdoNu;
+    private javax.swing.JLabel lbHinhanh;
+    private javax.swing.JPanel pnPhoto;
     private javax.swing.JTable tbList;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtEmail;
