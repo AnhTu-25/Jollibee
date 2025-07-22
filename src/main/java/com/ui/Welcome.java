@@ -4,6 +4,9 @@
  */
 package com.ui;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author LENOVO
@@ -16,21 +19,31 @@ public class Welcome extends javax.swing.JDialog {
     public Welcome(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Icon Application/tt.jpg"));
+        Image image = icon.getImage();
+        setIconImage(image);
     }
+
  public void Waiting() {
-        this.setLocationRelativeTo(null);
-        new Thread(() -> {
-            try {
-                for (var i = 0; i <= 100; i++) {
-                    ProgressBar.setValue(i);
-                    lblNumber.setText(i + "%");
-                    Thread.sleep(10);
-                }
-                Welcome.this.dispose();
-            } catch (InterruptedException ex) {
-                System.exit(0);
+       this.setLocationRelativeTo(null);
+    new Thread(() -> {
+        try {
+            for (int i = 0; i <= 100; i++) {
+                ProgressBar.setValue(i);
+                lblNumber.setText(i + "%");
+                Thread.sleep(10);
             }
-        }).start();
+            Welcome.this.dispose();
+
+            // Sau khi ?óng Welcome thì m? Login
+            java.awt.EventQueue.invokeLater(() -> {
+                new Login().setVisible(true);
+            });
+
+        } catch (InterruptedException ex) {
+            System.exit(0);
+        }
+    }).start();
     }
 
     /**

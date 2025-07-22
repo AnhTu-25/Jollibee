@@ -27,13 +27,14 @@ com\ui\Manager\MainSanPham$8.class
 com\ui\Manager\SanPhamDao.class
 com\ui\Login$1.class
 com\ui\Password$1.class
-com\ui\Login$3$1.class
 com\ui\Manager\UserNV$1.class
 com\ui\Sale$3.class
 com\ui\Manager\MainSanPham$5.class
+com\ui\Login$4.class
 com\ui\Manager\KhuyenMai.class
 com\ui\Manager\MainSanPham$2.class
 com\ui\Manager\UserNV$7.class
+com\ui\Login$setVisible.class
 com\ui\Login.class
 com\ui\Manager\UserNV$9$1.class
 com\ui\Manager\UserNV$4.class

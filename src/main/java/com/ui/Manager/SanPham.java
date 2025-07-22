@@ -12,7 +12,7 @@ public class SanPham {
     int soluong;
     int loaiSanPham;
 
-    public SanPham() {
+    public SanPham(String masp, String tensp, int soluong1, double dongia1, boolean khuyenmai) {
     }
 
     public SanPham(String maSP, String tenSP, double dongia, int soluong, int loaiSanPham) {

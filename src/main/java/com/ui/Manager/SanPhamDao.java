@@ -80,7 +80,7 @@ public class SanPhamDao {
              ResultSet rs = stm.executeQuery(SELECT_ALL_SQL)) {
 
             while (rs.next()) {
-                SanPham sp = new SanPham();
+                SanPham sp = new SanPham(masp, tensp, soluong, dongia, khuyenmai);
                 sp.setMaSP(rs.getString("MaSanPham"));
                 sp.setTenSP(rs.getString("TenSP"));
                 sp.setDongia(rs.getDouble("DonGia"));
@@ -95,7 +95,7 @@ public class SanPhamDao {
     }
 
     public SanPham getSanPhamByMaSanPham(String maSP) {
-        SanPham sp = new SanPham();
+        SanPham sp = new SanPham(masp, tensp, soluong, dongia, khuyenmai);
         try (Connection conn = getConnection();
              PreparedStatement stm = conn.prepareStatement(SELECT_BY_ID_SQL)) {
 
