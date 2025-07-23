@@ -5,131 +5,108 @@
 package com.ui.Manager;
 
 import com.ui.Home;
-import com.ui.Login;
-import java.text.DecimalFormat;
-import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
+import java.awt.event.*;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Admin
- */
-public class Sale extends javax.swing.JFrame {
+import javax.swing.table.DefaultTableModel;
 
-    /**
-     * Creates new form sale
-     * @param aThis
-     * @param rootPaneCheckingEnabled1
-     */
+import javax.swing.table.DefaultTableModel;
+
+import javax.swing.table.DefaultTableModel;
+import com.ui.Manager.MainSanPham;
+
+public class Sale extends JFrame {
+
     public Sale(Home aThis, boolean rootPaneCheckingEnabled1) {
         initComponents();
         setLocationRelativeTo(null);
-        initData();
-        spnQuantity = new JSpinner (new SpinnerNumberModel(0, 1, 100, 1));
-        setLayout(null);
-        spnQuantity.setBounds(30, 100, 60, 30);
-        add(spnQuantity);
+        
     }
-DefaultTableModel model;
-DecimalFormat formatter = new DecimalFormat("#,### VND");
 
 
-
-private void initData() {
-model = (DefaultTableModel) tblProduct.getModel();
-model.setRowCount(0);
-btnMore.addActionListener(e -> addProduct());
-btnUpdate.addActionListener(e -> updateProduct());
-btnDelete.addActionListener(e -> deleteProduct());
-btnRefresh.addActionListener(e -> clearForm());
-btnPayment.addActionListener(e -> payment());
-btnEscape.addActionListener(e -> dispose()); // ?�ng form
-btnHome.addActionListener(e -> {
-    new Home().setVisible(true);
-    dispose();
-});
-btnDangxuat.addActionListener(e -> {
-    new Login().setVisible(true);
-    dispose();
-});
-}
-
-
-private void clearForm(){
-     txtProductcode.setText("");
-    cbbProductname.setSelectedIndex(0);
-    spnQuantity.setValue(1);
-    ckxPromotion.setSelected(false);
-    txtUnitprice.setText("");
-    txtTotalunitprice.setText("");
-    spnQuantity.setValue(1);
-}
     
-private void addProduct() {
-    String masp = txtProductcode.getText();
-    String tensp = cbbProductname.getSelectedItem().toString();
-    int soluong = (int) spnQuantity.getValue();
-    if (soluong < 1 || soluong > 100){
-        JOptionPane.showMessageDialog(this, "so luong phai tu 1 denn 100");
-        return;
+    private void addToTable() {
+        String code = txtProductcode.getText();
+        String name = cbbProductname.getSelectedItem().toString();
+        int quantity = (int) spnQuantity.getValue();
+        if (quantity < 1) {
+            JOptionPane.showMessageDialog(this, "Eror!", "Eror", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        double unitPrice = Double.parseDouble(txtUnitprice.getText());
+
+        double promotionPercent = ckxPromotion.isSelected() ? 50.0 : 0.0; // 10% khuyến mãi nếu tích
+        double promotionAmount = (unitPrice * quantity) * (promotionPercent / 100);
+        double total = (unitPrice * quantity) - promotionAmount;
+
+        Object[] rowData = { code, name, quantity, unitPrice, total, promotionPercent + "%" };
+        DefaultTableModel model = (DefaultTableModel) tblProduct.getModel();
+        model.insertRow(0, rowData);
+        updateTotalUnitPrice();
+        
     }
-    double dongia = Double.parseDouble(txtUnitprice.getText());
-    boolean khuyenmai = ckxPromotion.isSelected();
-    double thanhtien = khuyenmai ? dongia * soluong * 0.9 : dongia * soluong;
-
-    SanPham sp = new SanPham(masp, tensp, soluong, dongia, khuyenmai);
-    SaleDao.insert(sp);
-
-    model.addRow(new Object[]{masp, tensp, soluong, formatter.format(dongia), khuyenmai ? "C�" : "Kh�ng", formatter.format(thanhtien)});
-    clearForm();
-}
-
-private void updateProduct() {
-    int row = tblProduct.getSelectedRow();
+    
+    
+    private void updateToTable() {
+     int row = tblProduct.getSelectedRow(); // lấy dòng đang được chọn
     if (row == -1) {
+        JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng cần cập nhật!");
         return;
     }
-    String masp = txtProductcode.getText();
-    String tensp = cbbProductname.getSelectedItem().toString();
-    int soluong = (int) spnQuantity.getValue();
-    if (soluong < 1 || soluong > 100){
-        JOptionPane.showMessageDialog(this, "so luong phai tu 1 den 100");
-        return;
+
+    try {
+        String code = txtProductcode.getText();
+        String name = cbbProductname.getSelectedItem().toString();
+        double unitPrice = Double.parseDouble(txtUnitprice.getText());
+        int quantity = (int) spnQuantity.getValue();
+        double promotion = Double.parseDouble(ckxPromotion.getText());
+
+        // Tính lại thành tiền
+        double total = unitPrice * quantity - promotion;
+
+        // Cập nhật dữ liệu lên bảng
+        DefaultTableModel model = (DefaultTableModel) tblProduct.getModel();
+        model.setValueAt(code, row, 0);
+        model.setValueAt(name, row, 1);
+        model.setValueAt(unitPrice, row, 2);
+        model.setValueAt(quantity, row, 3);
+        model.setValueAt(total, row, 4);
+        model.setValueAt(promotion, row, 5);
+
+        // Cập nhật lại tổng tiền toàn bảng
+        updateTotalUnitPrice();
+
+        JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Lỗi: " + e.getMessage());
     }
-    double dongia = Double.parseDouble(txtUnitprice.getText());
-    boolean khuyenmai = ckxPromotion.isSelected();
-    double thanhtien = khuyenmai ? dongia * soluong * 0.9 : dongia * soluong;
-
-    SanPham sp = new SanPham(masp, tensp, soluong, dongia, khuyenmai);
-    SaleDao.update(row, sp);
-
-    model.setValueAt(masp, row, 0);
-    model.setValueAt(tensp, row, 1);
-    model.setValueAt(soluong, row, 2);
-    model.setValueAt(formatter.format(dongia), row, 3);
-    model.setValueAt(khuyenmai ? "C�" : "Kh�ng", row, 4);
-    model.setValueAt(formatter.format(thanhtien), row, 5);
-    clearForm();
-}
-
-private void deleteProduct() {
-    int row = tblProduct.getSelectedRow();
-    if (row == -1) return;
-    SaleDao.delete(row);
-    model.removeRow(row);
-    clearForm();
-}
-
-private void payment() {
-    double tong = 0;
-    for (int i = 0; i < tblProduct.getRowCount(); i++) {
-        String thanhTienStr = tblProduct.getValueAt(i, 5).toString().replace(" VND", "").replace(",", "");
-        tong += Double.parseDouble(thanhTienStr);
     }
-    JOptionPane.showMessageDialog(this, "T?ng h�a ??n: " + formatter.format(tong));
-}    
+
+    
+
+    private double calculatePromotionPercent(double unitPrice, int quantity, double promotion) {
+        double totalPrice = unitPrice * quantity;
+        if (totalPrice == 0) return 0;
+        return (promotion / totalPrice) * 100;
+    }
+
+    private void updateTotalUnitPrice() {
+        DefaultTableModel model = (DefaultTableModel) tblProduct.getModel();
+        double sum = 0;
+        for (int i = 0; i < model.getRowCount(); i++) {
+            Object value = model.getValueAt(i, 4); // total unit price
+            if (value != null) {
+                try {
+                    sum += Double.parseDouble(value.toString());
+                } catch (NumberFormatException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        txtTotalunitprice.setText(String.format("%.0f", sum));
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -245,13 +222,13 @@ private void payment() {
 
         tblProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Product code ", "Product name", "Quantity", "Unit price", "Prpmotion"
+                "Product code ", "Product name", "Quantity", "Unit price", "Total unit price", "Promotion (%)"
             }
         ));
         tblProduct.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -277,6 +254,11 @@ private void payment() {
         });
 
         ckxPromotion.setText("Promotion");
+        ckxPromotion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ckxPromotionMouseClicked(evt);
+            }
+        });
         ckxPromotion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ckxPromotionActionPerformed(evt);
@@ -492,7 +474,7 @@ private void payment() {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaymentActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:  
     }//GEN-LAST:event_btnPaymentActionPerformed
 
     private void txtDutyofficerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDutyofficerActionPerformed
@@ -520,11 +502,17 @@ private void payment() {
     }//GEN-LAST:event_spnQuantityMouseClicked
 
     private void btnMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoreActionPerformed
-       
+    addToTable();
+    spnQuantity.setModel(new SpinnerNumberModel(0, 1, 100, 1)); // Chỉ cấu hình một lần
+
     }//GEN-LAST:event_btnMoreActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-
+btnUpdate.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        updateToTable();
+    }
+});
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -543,10 +531,17 @@ private void payment() {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEscapeActionPerformed
 
+    private void ckxPromotionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ckxPromotionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ckxPromotionMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+         new Sale(null, true).setVisible(true);
+        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -610,5 +605,7 @@ private void payment() {
     private javax.swing.JTextField txtTotalunitprice;
     private javax.swing.JTextField txtUnitprice;
     // End of variables declaration//GEN-END:variables
+
+
 }
 

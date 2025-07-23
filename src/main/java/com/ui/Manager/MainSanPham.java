@@ -23,7 +23,7 @@ public final class MainSanPham extends javax.swing.JFrame {
     /**
      * Creates new form MainSanPham
      */
-    public MainSanPham() {
+    public MainSanPham(Home home, boolean par) {
         initComponents();
         setLocationRelativeTo(null);
         loadDataToTable();
@@ -32,12 +32,17 @@ public final class MainSanPham extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource("/Icon Application/tt.jpg"));
         Image image = icon.getImage();
         setIconImage(image);
+        
+        
     }
 
-    public MainSanPham(Home aThis, boolean rootPaneCheckingEnabled) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-
+    MainSanPham() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+ 
+
+
 
     
 
@@ -572,6 +577,7 @@ public void clearForm() {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        new MainSanPham(new Home(), true).setVisible(true);
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -598,7 +604,7 @@ public void clearForm() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainSanPham().setVisible(true);
+               
             }
         });
     }

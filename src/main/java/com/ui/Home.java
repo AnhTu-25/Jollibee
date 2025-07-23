@@ -318,7 +318,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    new MainSanPham(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
+     // m? JFrame m?i
      this.dispose();  
 
     }//GEN-LAST:event_jButton4ActionPerformed
