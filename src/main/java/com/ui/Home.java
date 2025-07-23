@@ -299,34 +299,34 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-      new UserNV(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
-       
+        new UserNV(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
            new Login().setVisible(true);
-
+            this.dispose();  
     
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void btnPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPassActionPerformed
         // TODO add your handling code here:
-        new Password(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
-       
+         new Password(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
+          this.dispose();  
         
     }//GEN-LAST:event_btnPassActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-                new MainSanPham().setVisible(true); // m? JFrame m?i
+    new MainSanPham(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
+     this.dispose();  
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new Sale(this, rootPaneCheckingEnabled).setVisible(true);
+         this.dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

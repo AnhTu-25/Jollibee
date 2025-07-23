@@ -6,18 +6,18 @@ import java.util.List;
 
 public class SanPhamDao {
 
-    // ✅ Cấu hình SQL Server
-    private final String url = "jdbc:sqlserver://localhost:1433;databaseName=QLSanPham;encrypt=true;trustServerCertificate=true";
-    private final String userName = "sa"; // hoặc tên user bạn dùng trong SQL Server
-    private final String password = "Anhtu1211"; // thay bằng mật khẩu của bạn
+    private final String url = "jdbc:sqlserver://localhost:1433;databaseName=jollibee;encrypt=true;trustServerCertificate=true;";
 
-    String INSERT_SQL = "INSERT INTO SanPham (MaSanPham, TenSP, DonGia, SoLuong, MaLH) VALUES (?, ?, ?, ?, ?)";
-    String UPDATE_SQL = "UPDATE SanPham SET TenSP = ?, DonGia = ?, SoLuong = ?, MaLH = ? WHERE MaSanPham = ?";
-    String DELETE_SQL = "DELETE FROM SanPham WHERE MaSanPham = ?";
-    String SELECT_ALL_SQL = "SELECT * FROM SanPham";
-    String SELECT_BY_ID_SQL = "SELECT * FROM SanPham WHERE MaSanPham = ?";
-    String SELECT_LOAISANPHAM_BY_ID_SQL = "SELECT * FROM loai_sanpham WHERE MaLH = ?";
-    String SELECT_ALL_LOAISANPHAM_SQL = "SELECT * FROM loai_sanpham";
+    private final String userName = "sa";           // chỉnh lại nếu cần
+    private final String password = "Anhtu1211"; // sửa thành mật khẩu thật
+
+    private final String INSERT_SQL = "INSERT INTO sanpham (ten_sp, don_gia, so_luong, ma_loai) VALUES (?, ?, ?, ?)";
+    private final String UPDATE_SQL = "UPDATE sanpham SET ten_sp = ?, don_gia = ?, so_luong = ?, ma_loai = ? WHERE ma_sp = ?";
+    private final String DELETE_SQL = "DELETE FROM sanpham WHERE ma_sp = ?";
+    private final String SELECT_ALL_SQL = "SELECT * FROM sanpham";
+    private final String SELECT_BY_ID_SQL = "SELECT * FROM sanpham WHERE ma_sp = ?";
+    private final String SELECT_ALL_LOAISANPHAM_SQL = "SELECT * FROM loai_sanpham";
+    private final String SELECT_LOAISANPHAM_BY_ID_SQL = "SELECT * FROM loai_sanpham WHERE ma_loai = ?";
 
     private Connection getConnection() throws Exception {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -25,25 +25,21 @@ public class SanPhamDao {
     }
 
     public int insert(SanPham sp) {
-        int rs = 0;
         try (Connection conn = getConnection();
              PreparedStatement st = conn.prepareStatement(INSERT_SQL)) {
 
-            st.setString(1, sp.getMaSP());
-            st.setString(2, sp.getTenSP());
-            st.setDouble(3, sp.getDongia());
-            st.setInt(4, sp.getSoluong());
-            st.setInt(5, sp.getLoaiSanPham());
-
-            rs = st.executeUpdate();
+            st.setString(1, sp.getTenSP());
+            st.setDouble(2, sp.getDongia());
+            st.setInt(3, sp.getSoluong());
+            st.setInt(4, sp.getLoaiSanPham());
+            return st.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace(); // nên log lỗi
+            e.printStackTrace();
+            return 0;
         }
-        return rs;
     }
 
     public int update(SanPham sp) {
-        int rs = 0;
         try (Connection conn = getConnection();
              PreparedStatement st = conn.prepareStatement(UPDATE_SQL)) {
 
@@ -52,25 +48,23 @@ public class SanPhamDao {
             st.setInt(3, sp.getSoluong());
             st.setInt(4, sp.getLoaiSanPham());
             st.setString(5, sp.getMaSP());
-
-            rs = st.executeUpdate();
+            return st.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
+            return 0;
         }
-        return rs;
     }
 
     public int delete(String maSP) {
-        int rs = 0;
         try (Connection conn = getConnection();
              PreparedStatement st = conn.prepareStatement(DELETE_SQL)) {
 
             st.setString(1, maSP);
-            rs = st.executeUpdate();
+            return st.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
+            return 0;
         }
-        return rs;
     }
 
     public List<SanPham> getAllSanPham() {
@@ -80,12 +74,12 @@ public class SanPhamDao {
              ResultSet rs = stm.executeQuery(SELECT_ALL_SQL)) {
 
             while (rs.next()) {
-                SanPham sp = new SanPham(masp, tensp, soluong, dongia, khuyenmai);
-                sp.setMaSP(rs.getString("MaSanPham"));
-                sp.setTenSP(rs.getString("TenSP"));
-                sp.setDongia(rs.getDouble("DonGia"));
-                sp.setSoluong(rs.getInt("SoLuong"));
-                sp.setLoaiSanPham(rs.getInt("MaLH"));
+                SanPham sp = new SanPham();
+                sp.setMaSP(rs.getString("ma_sp"));
+                sp.setTenSP(rs.getString("ten_sp"));
+                sp.setDongia(rs.getDouble("don_gia"));
+                sp.setSoluong(rs.getInt("so_luong"));
+                sp.setLoaiSanPham(rs.getInt("ma_loai"));
                 list.add(sp);
             }
         } catch (Exception e) {
@@ -94,24 +88,26 @@ public class SanPhamDao {
         return list;
     }
 
-    public SanPham getSanPhamByMaSanPham(String maSP) {
-        SanPham sp = new SanPham(masp, tensp, soluong, dongia, khuyenmai);
+    public SanPham getSanPhamById(String maSP) {
         try (Connection conn = getConnection();
              PreparedStatement stm = conn.prepareStatement(SELECT_BY_ID_SQL)) {
 
             stm.setString(1, maSP);
-            ResultSet rs = stm.executeQuery();
-            if (rs.next()) {
-                sp.setMaSP(rs.getString("MaSanPham"));
-                sp.setTenSP(rs.getString("TenSP"));
-                sp.setDongia(rs.getDouble("DonGia"));
-                sp.setSoluong(rs.getInt("SoLuong"));
-                sp.setLoaiSanPham(rs.getInt("MaLH"));
+            try (ResultSet rs = stm.executeQuery()) {
+                if (rs.next()) {
+                    SanPham sp = new SanPham();
+                    sp.setMaSP(rs.getString("ma_sp"));
+                    sp.setTenSP(rs.getString("ten_sp"));
+                    sp.setDongia(rs.getDouble("don_gia"));
+                    sp.setSoluong(rs.getInt("so_luong"));
+                    sp.setLoaiSanPham(rs.getInt("ma_loai"));
+                    return sp;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return sp;
+        return null;
     }
 
     public List<LoaiSanPham> getAllLoaiSanPham() {
@@ -122,8 +118,8 @@ public class SanPhamDao {
 
             while (rs.next()) {
                 LoaiSanPham lsp = new LoaiSanPham();
-                lsp.setMaLoai(rs.getInt("MaLH"));
-                lsp.setTenLoai(rs.getString("TenLH"));
+                lsp.setMaLoai(rs.getInt("ma_loai"));
+                lsp.setTenLoai(rs.getString("ten_loai"));
                 list.add(lsp);
             }
         } catch (Exception e) {
@@ -132,20 +128,22 @@ public class SanPhamDao {
         return list;
     }
 
-    public LoaiSanPham getLoaiSanPhamByMaLoai(String maLoai) {
-        LoaiSanPham lsp = new LoaiSanPham();
+    public LoaiSanPham getLoaiSanPhamById(int loai) {
         try (Connection conn = getConnection();
              PreparedStatement stm = conn.prepareStatement(SELECT_LOAISANPHAM_BY_ID_SQL)) {
 
-            stm.setString(1, maLoai);
-            ResultSet rs = stm.executeQuery();
-            if (rs.next()) {
-                lsp.setMaLoai(rs.getInt("MaLH"));
-                lsp.setTenLoai(rs.getString("TenLH"));
+            stm.setInt(1, loai);
+            try (ResultSet rs = stm.executeQuery()) {
+                if (rs.next()) {
+                    LoaiSanPham lsp = new LoaiSanPham();
+                    lsp.setMaLoai(rs.getInt("ma_loai"));
+                    lsp.setTenLoai(rs.getString("ten_loai"));
+                    return lsp;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return lsp;
+        return null;
     }
 }

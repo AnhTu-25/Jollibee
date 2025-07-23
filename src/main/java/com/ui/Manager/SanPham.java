@@ -12,7 +12,7 @@ public class SanPham {
     int soluong;
     int loaiSanPham;
 
-    public SanPham(String masp, String tensp, int soluong1, double dongia1, boolean khuyenmai) {
+    public SanPham() {
     }
 
     public SanPham(String maSP, String tenSP, double dongia, int soluong, int loaiSanPham) {
@@ -64,8 +64,16 @@ public class SanPham {
     }
 
     public Object[] toRow() {
-        return new Object[]{
-        maSP, tenSP, dongia, soluong, loaiSanPham
-        };
+      return new Object[]{
+          maSP,
+          tenSP,
+          loaiSanPham,
+          dongia,      // Giá trước
+          soluong      // Số lượng sau
+      };
+  }
+
+    Object getLoai() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -38,4 +38,11 @@ public class LoaiSanPham {
         maLoai, tenLoai
         };
     } 
+    @Override
+        public String toString() {
+        return this.tenLoai;
+}
+
+
+
 }

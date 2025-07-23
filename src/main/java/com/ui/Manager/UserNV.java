@@ -1,5 +1,6 @@
 package com.ui.Manager;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -15,8 +16,14 @@ public class UserNV extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         init();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Icon Application/tt.jpg"));
+        Image image = icon.getImage();
+        setIconImage(image);
         
-        
+    }
+
+    public UserNV() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public void init() {
