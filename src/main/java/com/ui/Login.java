@@ -204,7 +204,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         if (choice == JOptionPane.OK_OPTION) {
-            this.dispose(); // ?óng JDialog hi?n t?i
+            this.dispose(); // ?ï¿½ng JDialog hi?n t?i
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -214,7 +214,7 @@ public class Login extends javax.swing.JFrame {
     String pass = new String(txtPassword.getPassword());
 
     if (user.equals("admin") && pass.equals("123")) {
-        this.dispose(); // ?óng Login
+        this.dispose(); // ?ï¿½ng Login
         new Home().setVisible(true); // m? Home
     } else {
         JOptionPane.showMessageDialog(this, "Invalid login!");
@@ -250,6 +250,7 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);

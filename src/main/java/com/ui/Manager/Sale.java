@@ -33,7 +33,7 @@ public class Sale extends javax.swing.JFrame {
         add(spnQuantity);
     }
 DefaultTableModel model;
-DecimalFormat formatter = new DecimalFormat("#,### VND");
+DecimalFormat formatter = new DecimalFormat(", VND");
 
 
 
@@ -45,7 +45,7 @@ btnUpdate.addActionListener(e -> updateProduct());
 btnDelete.addActionListener(e -> deleteProduct());
 btnRefresh.addActionListener(e -> clearForm());
 btnPayment.addActionListener(e -> payment());
-btnEscape.addActionListener(e -> dispose()); // ?óng form
+btnEscape.addActionListener(e -> dispose()); // ?ï¿½ng form
 btnHome.addActionListener(e -> {
     new Home().setVisible(true);
     dispose();
@@ -82,7 +82,7 @@ private void addProduct() {
     SanPham sp = new SanPham(masp, tensp, soluong, dongia, khuyenmai);
     SaleDao.insert(sp);
 
-    model.addRow(new Object[]{masp, tensp, soluong, formatter.format(dongia), khuyenmai ? "Có" : "Không", formatter.format(thanhtien)});
+    model.addRow(new Object[]{masp, tensp, soluong, formatter.format(dongia), khuyenmai ? "C" : "Khng", formatter.format(thanhtien)});
     clearForm();
 }
 
@@ -109,7 +109,7 @@ private void updateProduct() {
     model.setValueAt(tensp, row, 1);
     model.setValueAt(soluong, row, 2);
     model.setValueAt(formatter.format(dongia), row, 3);
-    model.setValueAt(khuyenmai ? "Có" : "Không", row, 4);
+    model.setValueAt(khuyenmai ? "C" : "Khng", row, 4);
     model.setValueAt(formatter.format(thanhtien), row, 5);
     clearForm();
 }
@@ -128,7 +128,7 @@ private void payment() {
         String thanhTienStr = tblProduct.getValueAt(i, 5).toString().replace(" VND", "").replace(",", "");
         tong += Double.parseDouble(thanhTienStr);
     }
-    JOptionPane.showMessageDialog(this, "T?ng hóa ??n: " + formatter.format(tong));
+    JOptionPane.showMessageDialog(this, "Tng ha ??n: " + formatter.format(tong));
 }    
 
     /**

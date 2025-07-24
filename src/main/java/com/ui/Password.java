@@ -172,33 +172,33 @@ public class Password extends javax.swing.JDialog {
     private void btnLuuMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuMatKhauActionPerformed
         // TODO add your handling code here:
           if (txtTenDangNhap.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "B?n c?n nh?p tên ??ng nh?p!", "L?i", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Bn cn nhp tn ng nhp!", "Li", JOptionPane.ERROR_MESSAGE);
         txtTenDangNhap.requestFocus();
         return;
     }
     if (txtMatKhauHienTai.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "B?n c?n nh?p m?t kh?u hi?n t?i!", "L?i", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Bn cn nhp mt khu hin ti!", "Li", JOptionPane.ERROR_MESSAGE);
         txtMatKhauHienTai.requestFocus();
         return;
     }
     if (txtMatkhauMoi.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "B?n c?n nh?p m?t kh?u m?i!", "L?i", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Bn cn nhp mt khu mi!", "Li", JOptionPane.ERROR_MESSAGE);
         txtMatkhauMoi.requestFocus();
         return;
     }
     if (txtXacNhanMatKhau.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "B?n c?n xác nh?n m?t kh?u m?i!", "L?i", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Bn cn xc nhn mt khu mi!", "Li", JOptionPane.ERROR_MESSAGE);
         txtXacNhanMatKhau.requestFocus();
         return;
     }
     if (!txtMatkhauMoi.getText().equals(txtXacNhanMatKhau.getText())) {
-        JOptionPane.showMessageDialog(this, "M?t kh?u m?i và xác nh?n không kh?p!", "L?i", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Mt khu mi v xc nhn khg khp!", "Li", JOptionPane.ERROR_MESSAGE);
         txtXacNhanMatKhau.requestFocus();
         return;
     }
 
-    // N?u qua h?t các b??c trên, x? lý l?u m?t kh?u ? ?ây
-    JOptionPane.showMessageDialog(this, "??i m?t kh?u thành công!");
+    // N?u qua h?t cï¿½c b??c trï¿½n, x? lï¿½ l?u m?t kh?u ? ?ï¿½y
+    JOptionPane.showMessageDialog(this, "i mt khu thnh cng!");
     }//GEN-LAST:event_btnLuuMatKhauActionPerformed
 
     /**

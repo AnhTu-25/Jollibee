@@ -23,6 +23,14 @@ public class SanPham {
         this.loaiSanPham = loaiSanPham;
     }
 
+   
+
+    
+
+    SanPham(String masp, String tensp, int soluong, double dongia, boolean khuyenmai) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getMaSP() {
         return maSP;
     }

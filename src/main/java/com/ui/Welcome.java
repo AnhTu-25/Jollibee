@@ -35,7 +35,7 @@ public class Welcome extends javax.swing.JDialog {
             }
             Welcome.this.dispose();
 
-            // Sau khi ?óng Welcome thì m? Login
+            
             java.awt.EventQueue.invokeLater(() -> {
                 new Login().setVisible(true);
             });

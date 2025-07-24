@@ -112,7 +112,7 @@ public SanPham getForm() {
     if (loai != null) {
         sp.setLoaiSanPham(loai.getMaLoai());
     } else {
-        JOptionPane.showMessageDialog(this, "Vui lòng chọn loại sản phẩm");
+        JOptionPane.showMessageDialog(this, "Vui long chon loai san pham");
         return null;
     }
 
@@ -145,34 +145,34 @@ public void clearForm() {
 }
     public boolean validateForm() {
         if (txtTenSP.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập tên sản phẩm");
+            JOptionPane.showMessageDialog(this, "Vui long nhap ten san pham");
             return false;
         }
         if (txtDonGia.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập đơn giá");
+            JOptionPane.showMessageDialog(this, "Vui long nhap đon gia");
             return false;
         }
         if (txtSoLuong.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập số lượng");
+            JOptionPane.showMessageDialog(this, "Vui long nhap so luong");
             return false;
         }
 
         try {
             Double.parseDouble(txtDonGia.getText().replace(",", "").trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Đơn giá phải là số");
+            JOptionPane.showMessageDialog(this, "Đon gia phai la so");
             return false;
         }
 
         try {
             Integer.parseInt(txtSoLuong.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Số lượng phải là số nguyên");
+            JOptionPane.showMessageDialog(this, "So luong phai la so nguyen");
             return false;
         }
 
         if (cbxChon.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn loại sản phẩm");
+            JOptionPane.showMessageDialog(this, "Vui long chon loai san pham");
             return false;
         }
 
@@ -481,7 +481,7 @@ public void clearForm() {
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
         if (current == 0) {
-            JOptionPane.showMessageDialog(this, "Đang ở đầu danh sách!");
+            JOptionPane.showMessageDialog(this, "Đang o đau danh sach!");
             return;
         }
         current--;
@@ -490,7 +490,7 @@ public void clearForm() {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         if (current == listsp.size() - 1) {
-            JOptionPane.showMessageDialog(this, "Đang ở cuối danh sách!");
+            JOptionPane.showMessageDialog(this, "Đang o cuoi danh sach!");
             return;
         }
         current++;
@@ -504,7 +504,7 @@ public void clearForm() {
     dao.insert(sp); 
     loadDataToTable();
     clearForm();
-    JOptionPane.showMessageDialog(this, "Thêm sản phẩm thành công");
+    JOptionPane.showMessageDialog(this, "Them san pham thanh cong");
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
@@ -513,20 +513,20 @@ public void clearForm() {
     SanPham sp = getForm();
     dao.update(sp); 
     loadDataToTable();
-    JOptionPane.showMessageDialog(this, "Cập nhật sản phẩm thành công");
+    JOptionPane.showMessageDialog(this, "Cap nhat san pham thanh cong");
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
           String ma = txtMaSP.getText();
             if (ma.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Vui lòng nhập mã sản phẩm để xóa");
+        JOptionPane.showMessageDialog(this, "Vui long nhap ma san pham đe xoa");
         return;
     }
 
          dao.delete(ma); // đảm bảo dao có hàm delete(String maSP)
          loadDataToTable();
          clearForm();
-         JOptionPane.showMessageDialog(this, "Xóa sản phẩm thành công");
+         JOptionPane.showMessageDialog(this, "Xoa san pham thanh cong");
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
