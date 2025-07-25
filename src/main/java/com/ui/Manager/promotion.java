@@ -10,8 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.DAO.khuyenMaiDAO;
 import com.DAO.impl.KhuyenMaiDAOImpl;
-
 import com.entity.KhuyenMai;
+import com.ui.Home;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -32,7 +34,13 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
         initComponents();
         listPromotionn = new ArrayList<>();
         init();
+        setLocationRelativeTo(null); 
+         ImageIcon icon = new ImageIcon(getClass().getResource("/Icon Application/tt.jpg"));
+        Image image = icon.getImage();
+        setIconImage(image);
     }
+
+  
    public void init(){
        dtm = (DefaultTableModel) tblKhuyenmai.getModel();
        fillTable(list);
@@ -108,7 +116,7 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
         jPanel1.setBackground(new java.awt.Color(255, 51, 51));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
-        jLabel1.setText("SALE");
+        jLabel1.setText("Promotion");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("Promotional code:");

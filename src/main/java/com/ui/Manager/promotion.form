@@ -174,7 +174,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Black" size="36" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="SALE"/>
+            <Property name="text" type="java.lang.String" value="Promotion"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
