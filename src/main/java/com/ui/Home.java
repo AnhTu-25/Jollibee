@@ -98,6 +98,11 @@ public class Home extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(185, 47, 2));
         jButton5.setText("Promotion");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(185, 47, 2));
         jButton6.setText("Staff");
@@ -327,6 +332,11 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
           
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
