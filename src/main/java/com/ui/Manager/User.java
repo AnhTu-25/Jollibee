@@ -138,7 +138,5 @@ public class User {
     // Getter & Setter (tạo đầy đủ cho tất cả fields ở trên)
     // ... Tự NetBeans Generate nhanh hoặc mình viết giúp nếu bạn muốn
 
-    public void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 }
