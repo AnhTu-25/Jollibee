@@ -2,15 +2,13 @@ E:\duan1\Jollibee\Jollibee\src\main\java\com\util\DBConnect.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\util\XJdbc.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\User.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Home.java
-E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\KhuyenMaiDAOImpl.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\promotion.java
-E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\Sale.java
+E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\Product.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\UserNV.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Login.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\entity\KhuyenMai.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\SanPhamDao.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\Promotionn.java
-E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\spnQuantity.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Manager\SanPham.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\ui\Welcome.java
 E:\duan1\Jollibee\Jollibee\src\main\java\com\DAO\impl\KhuyenMaiDAOImpl.java

@@ -5,7 +5,7 @@
 package com.ui;
 
 import com.ui.Manager.MainSanPham;
-import com.ui.Manager.Sale;
+
 import com.ui.Manager.UserNV;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -318,15 +318,14 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    new MainSanPham(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
+     // m? JFrame m?i
      this.dispose();  
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        new Sale(this, rootPaneCheckingEnabled).setVisible(true);
-         this.dispose();  
+          
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

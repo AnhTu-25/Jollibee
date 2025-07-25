@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 public class UserNV extends javax.swing.JDialog {
     private List<User> list = new ArrayList<>();
     private DefaultTableModel dtm;
-
+    private String path = "D/..";
     public UserNV(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -55,7 +55,8 @@ public class UserNV extends javax.swing.JDialog {
     txtghichu.setText("");
     cboVitri.setSelectedItem(null);
 cbostatus.setSelectedItem(null);
-    
+    lbHinhanh.setIcon(null);
+    lbHinhanh.setText("Chưa có hình");
 }
 
     private User readForm() {
@@ -302,7 +303,6 @@ cbostatus.setSelectedItem(null);
             }
         });
 
-        lbHinhanh.setText("Photo");
         lbHinhanh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbHinhanhMouseClicked(evt);
@@ -314,16 +314,16 @@ cbostatus.setSelectedItem(null);
         pnPhotoLayout.setHorizontalGroup(
             pnPhotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnPhotoLayout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addComponent(lbHinhanh, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbHinhanh, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         pnPhotoLayout.setVerticalGroup(
             pnPhotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnPhotoLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(lbHinhanh)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lbHinhanh, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -536,9 +536,9 @@ cbostatus.setSelectedItem(null);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTim)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTim, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121))
@@ -618,6 +618,14 @@ cbostatus.setSelectedItem(null);
 
     private void lbHinhanhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHinhanhMouseClicked
         // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        int ketQua = chooser.showOpenDialog(null);
+        if(ketQua == JFileChooser.APPROVE_OPTION){
+            path = chooser.getSelectedFile().getPath();
+            ImageIcon icon = new ImageIcon(path);
+            lbHinhanh.setIcon(icon);
+        } else {
+        }
     }//GEN-LAST:event_lbHinhanhMouseClicked
 
     /**
