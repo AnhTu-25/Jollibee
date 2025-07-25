@@ -15,6 +15,10 @@ public class Bill {
     private Date checkout;
     private int status; // 0 = Servicing, 1 = Completed, 2 = Canceled
 
+    public void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public static enum Status {
         Servicing, Completed, Canceled
     }

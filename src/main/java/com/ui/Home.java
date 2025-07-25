@@ -7,6 +7,7 @@ package com.ui;
 import com.ui.Manager.MainSanPham;
 
 import com.ui.Manager.UserNV;
+import com.ui.Manager.promotion;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -98,6 +99,11 @@ public class Home extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(185, 47, 2));
         jButton5.setText("Promotion");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(185, 47, 2));
         jButton6.setText("Staff");
@@ -312,14 +318,14 @@ public class Home extends javax.swing.JFrame {
     private void btnPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPassActionPerformed
         // TODO add your handling code here:
          new Password(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
-          this.dispose();  
-        
+          
+  
     }//GEN-LAST:event_btnPassActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
      // m? JFrame m?i
-     this.dispose();  
+         new MainSanPham(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -327,6 +333,13 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
           
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+     new promotion().setVisible(true); // m? JFrame m?i
+
+    
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

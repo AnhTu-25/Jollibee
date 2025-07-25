@@ -401,7 +401,7 @@ private void cancel() {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        this.showDrinkJDialog();
+        this.showDrinkDialog();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
