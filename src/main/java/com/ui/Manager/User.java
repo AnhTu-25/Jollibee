@@ -23,6 +23,7 @@ public class User {
     private String gioitinh;
     private String vaitro;
     private String trangthai;
+    private String hinhanh;
 
     public User() {
     }
@@ -107,8 +108,16 @@ public class User {
         this.trangthai = trangthai;
     }
 
+    public String getHinhanh() {
+        return hinhanh;
+    }
+
+    public void setHinhanh(String hinhanh) {
+        this.hinhanh = hinhanh;
+    }
+
     public User(String ma, String ten, String email, String ngaysinh, String sdt,
-                String matkhau, String ghichu, String gioitinh, String vaitro, String trangthai) {
+                String matkhau, String ghichu, String gioitinh, String vaitro, String trangthai, String hinhanh) {
         this.ma = ma;
         this.ten = ten;
         this.email = email;
@@ -119,6 +128,7 @@ public class User {
         this.gioitinh = gioitinh;
         this.vaitro = vaitro;
         this.trangthai = trangthai;
+        this.hinhanh = hinhanh;
     }
 
     public Vector<String> toTable() {
@@ -132,11 +142,11 @@ public class User {
         v.add(this.vaitro);
         v.add(this.trangthai);
         v.add(this.ghichu);
+        v.add(this.hinhanh);
         return v;
     }
 
-    // Getter & Setter (tạo đầy đủ cho tất cả fields ở trên)
-    // ... Tự NetBeans Generate nhanh hoặc mình viết giúp nếu bạn muốn
+    
 
 
 }
