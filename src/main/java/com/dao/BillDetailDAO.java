@@ -11,7 +11,6 @@ public interface BillDetailDAO {
     List<BillDetail> findByBillId(Long billId);
     void update(BillDetail entity);
     void deleteById(Long id);
-
     void insert(BillDetail detail);
 }
 
