@@ -3,6 +3,9 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="0" green="0" red="ff" type="rgb"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -24,6 +27,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+<<<<<<< HEAD
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -35,8 +39,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" min="-2" pref="68" max="-2" attributes="0"/>
                   <Component id="jPanel2" alignment="0" min="-2" pref="432" max="-2" attributes="0"/>
-              </Group>
+=======
               <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" min="-2" pref="68" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel2" min="-2" pref="68" max="-2" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+>>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,11 +64,18 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <Component id="jPanel1" pref="505" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
+=======
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="jPanel2" max="32767" attributes="0"/>
+              </Group>
+>>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,20 +93,31 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
               <Group type="102" attributes="0">
                   <Component id="jLabel8" min="-2" pref="628" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
               </Group>
               <Component id="jScrollPane1" max="32767" attributes="0"/>
+=======
+              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+              <Component id="jLabel8" alignment="0" min="-2" pref="631" max="-2" attributes="0"/>
+>>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
                   <Component id="jLabel8" min="-2" pref="299" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="198" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+=======
+                  <Component id="jLabel8" min="-2" pref="290" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+>>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
               </Group>
           </Group>
         </DimensionLayout>
@@ -99,6 +132,9 @@
           <SubComponents>
             <Component class="javax.swing.JTable" name="tblTT">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="cc" type="rgb"/>
+                </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="4">
                     <Column editable="true" title="Code" type="java.lang.Object"/>
@@ -167,25 +203,30 @@
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="cc" type="rgb"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
             <BevelBorder/>
           </Border>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="ff" type="rgb"/>
+          <Color blue="0" green="0" red="99" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
+<<<<<<< HEAD
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
@@ -230,17 +271,66 @@
                                           <Component id="btnLamMoi" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+=======
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel4" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" min="-2" pref="51" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel6" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtMaSP" min="-2" pref="330" max="-2" attributes="0"/>
+                              <Component id="txtTenSP" min="-2" pref="330" max="-2" attributes="0"/>
+                              <Component id="txtDonGia" min="-2" pref="330" max="-2" attributes="0"/>
+                              <Component id="txtSoLuong" min="-2" pref="330" max="-2" attributes="0"/>
+                              <Component id="cbxChon" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+<<<<<<< HEAD
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel7" min="-2" pref="102" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cbxChon" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
+=======
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btnFirst" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnPrevious" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="btnThem" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnCapNhat" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btnNext" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnLast" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="btnXoa" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnLamMoi" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+>>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
                       </Group>
                   </Group>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -272,21 +362,25 @@
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbxChon" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnThem" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCapNhat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnXoa" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLamMoi" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnXoa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCapNhat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnThem" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnFirst" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnPrevious" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnNext" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLast" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="169" max="32767" attributes="0"/>
+>>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
               </Group>
           </Group>
         </DimensionLayout>
@@ -338,7 +432,11 @@
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+<<<<<<< HEAD
               <Font name="Segoe UI" size="14" style="1"/>
+=======
+              <Font name="Segoe UI" size="12" style="1"/>
+>>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
             </Property>
             <Property name="text" type="java.lang.String" value="Product Type"/>
           </Properties>
@@ -414,7 +512,7 @@
         <Component class="javax.swing.JButton" name="btnPrevious">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
+              <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
           </Properties>
@@ -425,7 +523,7 @@
         <Component class="javax.swing.JButton" name="btnNext">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
+              <Font name="Segoe UI" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
           </Properties>

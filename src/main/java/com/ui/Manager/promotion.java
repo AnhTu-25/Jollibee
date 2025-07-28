@@ -25,6 +25,7 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
  private final List<Promotionn> list;
   private DefaultTableModel dtm = new DefaultTableModel();
     private Iterable<Promotionn> listPromotionn;
+    
     /**
      * Creates new form promotion
      */
@@ -47,6 +48,8 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
    public void init(){
        dtm = (DefaultTableModel) tblKhuyenmai.getModel();
        fillTable(list);
+               setLocationRelativeTo(null);
+
    }
    public void fillTable (List<Promotionn> listoromotion){
        dtm.setRowCount(0);
