@@ -24,6 +24,10 @@ public class Login extends javax.swing.JFrame {
         setIconImage(image);
     }
 
+    Login(Home aThis, boolean rootPaneCheckingEnabled) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
   
 
     /**
@@ -253,7 +257,8 @@ public class Login extends javax.swing.JFrame {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+             
+                
             }
         });
     }
@@ -273,9 +278,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
-    static class setVisible {
-
-        public setVisible(boolean b) {
-        }
-    }
+  
 }
