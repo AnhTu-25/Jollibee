@@ -6,6 +6,7 @@ package com.ui;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,10 +25,7 @@ public class Login extends javax.swing.JFrame {
         setIconImage(image);
     }
 
-    Login(Home aThis, boolean rootPaneCheckingEnabled) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+  
   
 
     /**

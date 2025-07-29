@@ -4,6 +4,8 @@
  */
 package com.ui;
 
+import com.DAO.UserDAO;
+import com.util.Tpass;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
 
@@ -23,10 +25,40 @@ public class Password extends javax.swing.JDialog {
         initComponents();
     }
 
-    Password() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    UserDAO dao = new UserDAOImpl();
+
+    @Override
+    public void open() {
+        this.setLocationRelativeTo(null);
     }
 
+    @Override
+    public void close() {
+        this.dispose();
+    }
+
+    @Override
+    public void save() {
+        String username = txtName.getText();
+        String password = txtValiblePass.getText();
+        String newpass = txtNewPass.getText();
+        String confirm = txtConfirmPass.getText();
+
+        if (!newpass.equals(confirm)) {
+            XDialog.alert("Xác nhận mật khẩu không đúng!");
+        } else if (!username.equals(Tpass.user.getUsername())) {
+            XDialog.alert("Sai tên đăng nhập!");
+        } else if (!password.equals(Tpass.user.getPassword())) {
+            XDialog.alert("Sai mật khẩu!");
+        } else {
+            Tpass.user.setPassword(newpass);
+            dao.update(Tpass.user);
+            XDialog.alert("Đổi mật khẩu thành công!");
+        }
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,11 +71,11 @@ public class Password extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         btnDong = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        txtMatkhauMoi = new javax.swing.JTextField();
-        txtXacNhanMatKhau = new javax.swing.JTextField();
-        txtMatKhauHienTai = new javax.swing.JTextField();
+        txtNewPass = new javax.swing.JTextField();
+        txtConfirmPass = new javax.swing.JTextField();
+        txtValiblePass = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtTenDangNhap = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btnLuuMatKhau = new javax.swing.JButton();
@@ -67,9 +99,9 @@ public class Password extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel2.setText("Username:");
 
-        txtTenDangNhap.addActionListener(new java.awt.event.ActionListener() {
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTenDangNhapActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
 
@@ -109,13 +141,13 @@ public class Password extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtXacNhanMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(txtMatkhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(txtMatKhauHienTai, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValiblePass, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(0, 39, Short.MAX_VALUE))
         );
@@ -127,19 +159,19 @@ public class Password extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtMatKhauHienTai, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtValiblePass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtMatkhauMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtXacNhanMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLuuMatKhau)
@@ -162,10 +194,10 @@ public class Password extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTenDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenDangNhapActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_txtTenDangNhapActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnDongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDongActionPerformed
           Password dialog = new Password(Home, true);
@@ -174,35 +206,34 @@ public class Password extends javax.swing.JDialog {
     }//GEN-LAST:event_btnDongActionPerformed
 
     private void btnLuuMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuMatKhauActionPerformed
-        // TODO add your handling code here:
-          if (txtTenDangNhap.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Bn cn nhp tn ng nhp!", "Li", JOptionPane.ERROR_MESSAGE);
-        txtTenDangNhap.requestFocus();
-        return;
-    }
-    if (txtMatKhauHienTai.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Bn cn nhp mt khu hin ti!", "Li", JOptionPane.ERROR_MESSAGE);
-        txtMatKhauHienTai.requestFocus();
-        return;
-    }
-    if (txtMatkhauMoi.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Bn cn nhp mt khu mi!", "Li", JOptionPane.ERROR_MESSAGE);
-        txtMatkhauMoi.requestFocus();
-        return;
-    }
-    if (txtXacNhanMatKhau.getText().trim().isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Bn cn xc nhn mt khu mi!", "Li", JOptionPane.ERROR_MESSAGE);
-        txtXacNhanMatKhau.requestFocus();
-        return;
-    }
-    if (!txtMatkhauMoi.getText().equals(txtXacNhanMatKhau.getText())) {
-        JOptionPane.showMessageDialog(this, "Mt khu mi v xc nhn khg khp!", "Li", JOptionPane.ERROR_MESSAGE);
-        txtXacNhanMatKhau.requestFocus();
-        return;
-    }
+  // TODO add your handling code here:
+if (txtName.getText().trim().isEmpty()) {
+    JOptionPane.showMessageDialog(this, "You must enter a username!", "Error", JOptionPane.ERROR_MESSAGE);
+    txtName.requestFocus();
+    return;
+}
+if (txtValiblePass.getText().trim().isEmpty()) {
+    JOptionPane.showMessageDialog(this, "You must enter the current password!", "Error", JOptionPane.ERROR_MESSAGE);
+    txtValiblePass.requestFocus();
+    return;
+}
+if (txtNewPass.getText().trim().isEmpty()) {
+    JOptionPane.showMessageDialog(this, "You must enter a new password!", "Error", JOptionPane.ERROR_MESSAGE);
+    txtNewPass.requestFocus();
+    return;
+}
+if (txtConfirmPass.getText().trim().isEmpty()) {
+    JOptionPane.showMessageDialog(this, "You must confirm the new password!", "Error", JOptionPane.ERROR_MESSAGE);
+    txtConfirmPass.requestFocus();
+    return;
+}
+if (!txtNewPass.getText().equals(txtConfirmPass.getText())) {
+    JOptionPane.showMessageDialog(this, "The new password and confirmation do not match!", "Error", JOptionPane.ERROR_MESSAGE);
+    txtConfirmPass.requestFocus();
+    return;
+}
+JOptionPane.showMessageDialog(this, "Password changed successfully!");
 
-    // N?u qua h?t c�c b??c tr�n, x? l� l?u m?t kh?u ? ?�y
-    JOptionPane.showMessageDialog(this, "i mt khu thnh cng!");
     }//GEN-LAST:event_btnLuuMatKhauActionPerformed
 
     /**
@@ -256,9 +287,9 @@ public class Password extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtMatKhauHienTai;
-    private javax.swing.JTextField txtMatkhauMoi;
-    private javax.swing.JTextField txtTenDangNhap;
-    private javax.swing.JTextField txtXacNhanMatKhau;
+    private javax.swing.JTextField txtConfirmPass;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNewPass;
+    private javax.swing.JTextField txtValiblePass;
     // End of variables declaration//GEN-END:variables
 }
