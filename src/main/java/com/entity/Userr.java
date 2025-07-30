@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor          // Sinh constructor không tham số
 @AllArgsConstructor         // Sinh constructor đầy đủ tham số
 @Builder                   // Sinh builder pattern
-public class User {
+public class Userr {
 
     private String username;
     private String password;

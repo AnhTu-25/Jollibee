@@ -4,7 +4,7 @@
  */
 package com.util;
 
-import com.entity.User;
+import com.entity.Userr;
 
 /**
  *
@@ -12,7 +12,7 @@ import com.entity.User;
  */
 public class Tpass {
 
-    public static User user = User.builder()
+    public static Userr user = Userr.builder()
             .username("Nguyenanhtu")
             .password("1211")
             .enabled(true)

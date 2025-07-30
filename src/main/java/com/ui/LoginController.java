@@ -2,13 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.DAO;
+package com.ui;
 
-import com.entity.Userr;
 
 /**
  *
- * @author Anh Tu
+ * @author VAN TRONG
  */
-public interface UserDAO extends CrudDAO<Userr, String> {
+public interface LoginController {
+
+    void open();
+
+    void login();
+
+    
 }

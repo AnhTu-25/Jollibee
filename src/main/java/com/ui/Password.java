@@ -5,6 +5,8 @@
 package com.ui;
 
 import com.DAO.UserDAO;
+import com.DAO.impl.UserDAOImpl;
+import com.util.TDialog;
 import com.util.Tpass;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
@@ -13,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author PC
  */
-public class Password extends javax.swing.JDialog {
+public class Password extends javax.swing.JDialog implements PasswordController{
 
     private Frame Home;
 
@@ -28,10 +30,11 @@ public class Password extends javax.swing.JDialog {
     
     UserDAO dao = new UserDAOImpl();
 
-    @Override
-    public void open() {
-        this.setLocationRelativeTo(null);
-    }
+ @Override
+public void open() {
+    this.setLocationRelativeTo(null);
+}
+
 
     @Override
     public void close() {
@@ -45,17 +48,23 @@ public class Password extends javax.swing.JDialog {
         String newpass = txtNewPass.getText();
         String confirm = txtConfirmPass.getText();
 
-        if (!newpass.equals(confirm)) {
-            XDialog.alert("Xác nhận mật khẩu không đúng!");
-        } else if (!username.equals(Tpass.user.getUsername())) {
-            XDialog.alert("Sai tên đăng nhập!");
-        } else if (!password.equals(Tpass.user.getPassword())) {
-            XDialog.alert("Sai mật khẩu!");
-        } else {
-            Tpass.user.setPassword(newpass);
-            dao.update(Tpass.user);
-            XDialog.alert("Đổi mật khẩu thành công!");
+     if (!newpass.equals(confirm)) {
+        TDialog.alert("Xác nhận mật khẩu không đúng!");
+    } else if (!username.equals(Tpass.user.getUsername())) {
+        TDialog.alert("Sai tên đăng nhập!");
+    } else if (!password.equals(Tpass.user.getPassword())) {
+        TDialog.alert("Sai mật khẩu!");
+    } else {
+        Tpass.user.setPassword(newpass);
+        
+        // 🔧 Đảm bảo không bị lỗi do thiếu ảnh
+        if (Tpass.user.getPhoto() == null) {
+            Tpass.user.setPhoto("jlb1.jpg");
         }
+
+        dao.update(Tpass.user);
+        TDialog.alert("Đổi mật khẩu thành công!");
+    }
     }
 
     
@@ -207,33 +216,6 @@ public class Password extends javax.swing.JDialog {
 
     private void btnLuuMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuMatKhauActionPerformed
   // TODO add your handling code here:
-if (txtName.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(this, "You must enter a username!", "Error", JOptionPane.ERROR_MESSAGE);
-    txtName.requestFocus();
-    return;
-}
-if (txtValiblePass.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(this, "You must enter the current password!", "Error", JOptionPane.ERROR_MESSAGE);
-    txtValiblePass.requestFocus();
-    return;
-}
-if (txtNewPass.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(this, "You must enter a new password!", "Error", JOptionPane.ERROR_MESSAGE);
-    txtNewPass.requestFocus();
-    return;
-}
-if (txtConfirmPass.getText().trim().isEmpty()) {
-    JOptionPane.showMessageDialog(this, "You must confirm the new password!", "Error", JOptionPane.ERROR_MESSAGE);
-    txtConfirmPass.requestFocus();
-    return;
-}
-if (!txtNewPass.getText().equals(txtConfirmPass.getText())) {
-    JOptionPane.showMessageDialog(this, "The new password and confirmation do not match!", "Error", JOptionPane.ERROR_MESSAGE);
-    txtConfirmPass.requestFocus();
-    return;
-}
-JOptionPane.showMessageDialog(this, "Password changed successfully!");
-
     }//GEN-LAST:event_btnLuuMatKhauActionPerformed
 
     /**
