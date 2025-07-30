@@ -337,12 +337,12 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
+
         new promotion().setVisible(true);
-=======
+
 
      new promotion().setVisible(true); // m? JFrame m
->>>>>>> f67c6da4996f3a56e5a7a9db8523da3e979b5c35
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

@@ -5,6 +5,7 @@
 package com.ui.Manager;
 
 import java.awt.Image;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,6 +30,7 @@ private List<User> list = new ArrayList<>();
         ImageIcon icon = new ImageIcon(getClass().getResource("/Icon Application/tt.jpg"));
         Image image = icon.getImage();
         setIconImage(image);
+        setLocationRelativeTo(null);
         
     }
     /**
@@ -149,6 +151,26 @@ cbostatus.setSelectedItem(null);
         clearForm();
         JOptionPane.showMessageDialog(this, "No data available");
     }
+public void fillFormToTable(User sv) {
+    txtName.setText(sv.getTen());
+    txtSDT.setText(sv.getSdt());
+    cboVitri.setSelectedItem(sv.getVaitro());
+
+    try {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = sdf.parse(sv.getNgaysinh());
+        txtDate.setDate(date);
+    } catch (ParseException e) {
+        e.printStackTrace(); // hoặc JOptionPane.showMessageDialog(this, "Lỗi ngày sinh!");
+    }
+
+    txtEmail.setText(sv.getEmail());
+    txtghichu.setText(sv.getGhichu());
+    txtMa.setText(sv.getMa());
+    txtpassword.setText(sv.getMatkhau());
+    cboSex.setSelectedItem(sv.getGioitinh());
+    cbostatus.setSelectedItem(sv.getTrangthai());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -578,7 +600,9 @@ cbostatus.setSelectedItem(null);
 
     private void tbListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbListMouseClicked
         // TODO add your handling code here:
-
+int index = tbList.getSelectedRow();
+        User sv = list.get(index);
+        fillFormToTable(sv);
     }//GEN-LAST:event_tbListMouseClicked
 
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
