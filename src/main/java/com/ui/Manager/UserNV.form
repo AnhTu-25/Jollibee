@@ -35,8 +35,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
+<<<<<<< HEAD
+                  <Component id="jPanel2" alignment="0" pref="693" max="32767" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+=======
                   <Component id="jPanel1" max="32767" attributes="0"/>
                   <Component id="jPanel2" pref="0" max="32767" attributes="0"/>
+>>>>>>> e6f174e42a8965fc25d5ab2c9fc1c273ca292f0d
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -100,7 +105,7 @@
                               <Component id="btnAdd" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="txtDate" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtDate" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
@@ -133,8 +138,13 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDate" min="-2" pref="30" max="-2" attributes="0"/>
+=======
                       <Component id="txtDate" min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+>>>>>>> e6f174e42a8965fc25d5ab2c9fc1c273ca292f0d
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -166,7 +176,7 @@
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <Component id="cbostatus" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" pref="16" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnAdd" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="btnNew" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
@@ -497,9 +507,6 @@
           </SubComponents>
         </Container>
         <Component class="com.toedter.calendar.JDateChooser" name="txtDate">
-          <Properties>
-            <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

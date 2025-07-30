@@ -20,7 +20,7 @@ import javax.swing.ImageIcon;
  *
  * @author hạ
  */
-public class promotion extends javax.swing.JFrame {
+public class Promotion extends javax.swing.JFrame {
 private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
  private final List<Promotionn> list;
   private DefaultTableModel dtm = new DefaultTableModel();
@@ -29,7 +29,7 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
     /**
      * Creates new form promotion
      */
-    public promotion() {
+    public Promotion() {
         this.list = new ArrayList<>();
         initComponents();
         listPromotionn = new ArrayList<>();
@@ -40,7 +40,7 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
         setIconImage(image);
     }
 
-    public promotion(Home aThis, boolean rootPaneCheckingEnabled) {
+    public Promotion(Home aThis, boolean rootPaneCheckingEnabled) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -406,21 +406,23 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(promotion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Promotion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(promotion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Promotion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(promotion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Promotion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(promotion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Promotion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new promotion().setVisible(true);
+                new Promotion().setVisible(true);
             }
         });
     }
@@ -452,7 +454,7 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
     private javax.swing.JTextField txtTimKM;
     // End of variables declaration//GEN-END:variables
 
-    private static class promotio extends promotion {
+    private static class promotio extends Promotion {
 
         public promotio(String ma, String ten, String loai, double giaTri, String trangThai) {
         }
@@ -461,7 +463,7 @@ private KhuyenMaiDAOImpl khuyenMaiDAO = new KhuyenMaiDAOImpl();
     
 
         
-        public void insert(promotion km) {
+        public void insert(Promotion km) {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
 

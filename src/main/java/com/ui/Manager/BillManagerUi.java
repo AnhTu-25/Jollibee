@@ -4,10 +4,10 @@
  */
 package com.ui.Manager;
 
-import com.dao.BillDAO;
-import com.dao.BillDAOImpl;
-import com.dao.BillDetailDAO;
-import com.dao.BillDetailDAOImpl;
+import com.Dao.BillDAO;
+import com.Dao.BillDAOImpl;
+import com.Dao.BillDetailDAO;
+import com.Dao.BillDetailDAOImpl;
 import com.entity.BillDetail;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,65 +30,7 @@ public class BillManagerUi extends javax.swing.JFrame {
         addEventHandlers();
     }
 
-    private void initComponents() {
-        setTitle("Quản lý hóa đơn");
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
 
-        // Khởi tạo các thành phần giao diện
-        txtId = new javax.swing.JTextField();
-        txtCardId = new javax.swing.JTextField();
-        txtCheckin = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
-        txtStatus = new javax.swing.JTextField();
-        txtCheckout = new javax.swing.JTextField();
-
-        tableModel = new DefaultTableModel();
-        tableModel.addColumn("Mã phiếu");
-        tableModel.addColumn("Món ăn");
-        tableModel.addColumn("Đơn giá");
-        tableModel.addColumn("Số lượng");
-        tableModel.addColumn("Thành tiền");
-        tblBillDetails.setModel(tableModel);
-
-        btnRemove = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
-        btnCheckout = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
-
-        btnRemove.setText("Xóa món");
-        btnAdd.setText("Thêm món");
-        btnCheckout.setText("Thanh toán");
-        btnCancel.setText("Hủy phiếu");
-
-        // Thêm các thành phần vào panel
-        javax.swing.JPanel panel = new javax.swing.JPanel();
-        panel.setLayout(new java.awt.GridLayout(6, 2));
-        panel.add(new javax.swing.JLabel("Mã phiếu:"));
-        panel.add(txtId);
-        panel.add(new javax.swing.JLabel("Số:"));
-        panel.add(txtCardId);
-        panel.add(new javax.swing.JLabel("Thời điểm đặt hàng:"));
-        panel.add(txtCheckin);
-        panel.add(new javax.swing.JLabel("Nhân viên:"));
-        panel.add(txtUsername);
-        panel.add(new javax.swing.JLabel("Trạng thái:"));
-        panel.add(txtStatus);
-        panel.add(new javax.swing.JLabel("Thời điểm thanh toán:"));
-        panel.add(txtCheckout);
-
-        javax.swing.JPanel buttonPanel = new javax.swing.JPanel();
-        buttonPanel.add(btnAdd);
-        buttonPanel.add(btnRemove);
-        buttonPanel.add(btnCheckout);
-        buttonPanel.add(btnCancel);
-
-        getContentPane().add(panel, java.awt.BorderLayout.NORTH);
-        getContentPane().add(new javax.swing.JScrollPane(tblBillDetails), java.awt.BorderLayout.CENTER);
-        getContentPane().add(buttonPanel, java.awt.BorderLayout.SOUTH);
-
-        pack();
-    }
 
     private void loadBillData() {
         // Giả sử lấy hóa đơn đầu tiên từ cơ sở dữ liệu
@@ -444,7 +386,7 @@ private void cancel() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Bill().setVisible(true);
+                new BillManagerUi().setVisible(true);
             }
         });
     }
