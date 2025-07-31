@@ -5,12 +5,24 @@
 package com.ui;
 
 import com.DAO.UserDAO;
+<<<<<<< HEAD
 import com.DAO.impl.UserDAOImpl;
 import com.util.TDialog;
+=======
+import com.DAO.UserDAOImpl;
+>>>>>>> 9b1f32a (cập nhật code mới)
 import com.util.Tpass;
 import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 /**
  *
  * @author PC
@@ -23,25 +35,31 @@ public class Password extends javax.swing.JDialog implements PasswordController{
      * Creates new form Password
      */
     public Password(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
-    }
+    super(parent, modal);
+    initComponents();               // KHÔNG ĐƯỢC THIẾU
+    setLocationRelativeTo(null);    // Căn giữa cửa sổ
+}
+
 
     
     UserDAO dao = new UserDAOImpl();
 
+<<<<<<< HEAD
  @Override
 public void open() {
     this.setLocationRelativeTo(null);
 }
 
+=======
+    public void open() {
+        this.setLocationRelativeTo(null);
+    }
+>>>>>>> 9b1f32a (cập nhật code mới)
 
-    @Override
     public void close() {
         this.dispose();
     }
 
-    @Override
     public void save() {
         String username = txtName.getText();
         String password = txtValiblePass.getText();
@@ -209,6 +227,7 @@ public void open() {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnDongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDongActionPerformed
+        Frame Home = null;
           Password dialog = new Password(Home, true);
         this.setVisible(false);
         Home.setVisible(true);
@@ -247,17 +266,18 @@ public void open() {
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Password dialog = new Password(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+    public void run() {
+        Password XDialog = new Password(new javax.swing.JFrame(), true);
+        XDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                System.exit(0);
             }
         });
+        XDialog.setVisible(true);
+    }
+});
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -274,4 +294,11 @@ public void open() {
     private javax.swing.JTextField txtNewPass;
     private javax.swing.JTextField txtValiblePass;
     // End of variables declaration//GEN-END:variables
+
+    private static class XDialog {
+    public static void alert(String message) {
+        javax.swing.JOptionPane.showMessageDialog(null, message);
+    }
+}
+
 }

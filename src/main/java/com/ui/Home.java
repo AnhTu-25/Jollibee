@@ -4,12 +4,14 @@
  */
 package com.ui;
 
+import com.ui.Manager.BillManagerUi;
 import com.ui.Manager.MainSanPham;
 
-import com.ui.Manager.UserNV;
+import com.ui.Manager.UsersNV;
 import com.ui.Manager.Promotion;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -76,7 +78,7 @@ public class Home extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
         );
 
         btnSell.setBackground(new java.awt.Color(185, 47, 2));
@@ -89,6 +91,11 @@ public class Home extends javax.swing.JFrame {
 
         btnBill.setBackground(new java.awt.Color(185, 47, 2));
         btnBill.setText("Bill");
+        btnBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBillActionPerformed(evt);
+            }
+        });
 
         btnProduct.setBackground(new java.awt.Color(185, 47, 2));
         btnProduct.setText("Product");
@@ -308,7 +315,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffActionPerformed
-        new UserNV(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
+        new UsersNV(this, rootPaneCheckingEnabled).setVisible(true); // m? JFrame m?i
     }//GEN-LAST:event_btnStaffActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -355,6 +362,13 @@ public class Home extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnPromotionActionPerformed
 >>>>>>> bd12f7dd60c6da33fa62add2888c7900a4a134c3
+
+    private void btnBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillActionPerformed
+        // TODO add your handling code here:
+         SwingUtilities.invokeLater(() -> {
+            new BillManagerUi().setVisible(true);
+        });
+    }//GEN-LAST:event_btnBillActionPerformed
 
     /**
      * @param args the command line arguments

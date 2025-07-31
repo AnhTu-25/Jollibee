@@ -24,9 +24,6 @@ public class Welcome extends javax.swing.JDialog {
         setIconImage(image);
     }
 
-  
-  
-
  public void Waiting() {
        this.setLocationRelativeTo(null);
     new Thread(() -> {
@@ -145,7 +142,6 @@ public class Welcome extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblNumber;
     // End of variables declaration//GEN-END:variables
-
     static class setVisible {
 
         public setVisible(boolean b) {

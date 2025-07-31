@@ -6,6 +6,10 @@ import java.util.List;
 
 public class SanPhamDao {
 
+    static List<SanPham> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     private final String url = "jdbc:sqlserver://localhost:1433;databaseName=jollibee;encrypt=true;trustServerCertificate=true;";
 
     private final String userName = "sa";           // chỉnh lại nếu cần

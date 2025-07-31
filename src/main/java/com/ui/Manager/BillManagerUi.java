@@ -15,6 +15,13 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.entity.Bill;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
 public class BillManagerUi extends javax.swing.JFrame {
 
@@ -28,9 +35,30 @@ public class BillManagerUi extends javax.swing.JFrame {
         initComponents();
         loadBillData();
         addEventHandlers();
+        initCustom();
     }
 
+<<<<<<< HEAD
 
+=======
+    private void initCustom() {
+        setTitle("Quản lý hóa đơn");
+        setLocationRelativeTo(null); // hiển thị giữa màn hình
+
+        // Tạo Label tiêu đề
+        JLabel lblTitle = new JLabel("BẢNG QUẢN LÝ HÓA ĐƠN", SwingConstants.CENTER);
+        lblTitle.setFont(new Font("Arial", Font.BOLD, 24));
+        lblTitle.setForeground(Color.RED);
+
+        // Thêm tiêu đề vào đầu cửa sổ
+        getContentPane().add(lblTitle, BorderLayout.NORTH);
+
+        // Thêm nội dung trung tâm nếu cần
+        JPanel panelCenter = new JPanel();
+        panelCenter.add(new JLabel(">> Danh sách hóa đơn sẽ hiển thị ở đây <<"));
+        getContentPane().add(panelCenter, BorderLayout.CENTER);
+    }
+>>>>>>> 9b1f32a (cập nhật code mới)
 
     private void loadBillData() {
         // Giả sử lấy hóa đơn đầu tiên từ cơ sở dữ liệu
@@ -359,7 +387,10 @@ private void cancel() {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new BillManagerUi().setVisible(true);
+        });
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
